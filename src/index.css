@@ -5,9 +5,321 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10%;
+  height: 100px;
+  background-color: #db0008;
+  color: black;
+}
+
+#mcdonalds-logo{
+  height: 50px;
+}
+
+#main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#menu-section {
+  flex-basis: 40%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  align-items: center;
+  margin: 20px 1% 20px 0;
+  padding: 10px 40px 40px 30px;
+}
+
+#menu-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#menu-header > h2 {
+  padding: 10px 10px;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+
+}
+
+#menu-header > h2:hover,
+#menu-header > h2.active {
+  border-bottom: 2px solid red;
+}
+
+
+.food-item {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+}
+
+.food-item.disabled {
+  opacity: 0.5; /* Adjust the opacity as needed */
+}
+
+.btn-add-to-cart{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ffe640;
+  border-radius: 100px;
+  font-size: 25px;
+  border: 0px;
+  height: 50px;
+  width: 50px;
+  display: inline;
+  margin-left: auto;
+}
+
+.food-display-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+}
+
+.food-info-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  text-align: left;
+  width: 60%;
+  align-items: left;
+}
+
+.add-to-cart-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.add-to-cart-container h4{
+  margin-right: 10px;
+}
+
+.food-title {
+  font-size: 2rem;
+}
+
+.food-desc {
+  width: 100%;
+}
+
+h4 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-left: auto;
+}
+
+.food-image {
+  width: 30%;
+}
+
+#order-section {
+  position: relative;
+  flex-basis: 40%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  align-items: center;
+  margin: 20px 0 20px 1%;
+  padding: 10px 40px 100px 30px;
+}
+
+#order-section h1{
+  font-size: 2rem;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-item-image {
+  width: 20%;
+}
+
+.btn-remove-item {  
+  cursor: pointer;
+  padding: 15px 30px;
+  background-color: #db0008;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  margin: 20px;
+  height: 50px;
+}
+
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-controls > * {
+  padding: 10px;
+}
+
+.btn-quantity{
+  border: 1px solid #ffe640;
+  background-color: white;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.order-item-title {
+  font-size: 1.7rem;
+}
+
+.order-item-amount {
+  font-size: 1.2rem;
+}
+
+#order-place-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items:  center;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+#total-price {
+  font-size: 1.7rem;
+  margin-right: 20px;
+}
+
+#btn-place-order, .modal button, #btn-cancel-order{
+  background-color: #ffe640;
+  border: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-cancel-order {
+  background-color: #db0008;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  left: 20px; 
+}
+
+#btn-cancel-order:disabled, .btn-add-to-cart:disabled{
+  opacity: 50%;
+}
+
+.btn-remove-item:active, #btn-cancel-order:active {
+  background-color: #8f2424;
+}
+
+.btn-add-to-cart:active, #btn-place-order:active {
+  background-color: #c8b434;
+}
+
+footer {
+  height: 150px;
+  border-top: 2px solid #ccc;
+  width: 80%;
+  margin: 10px auto;
+  display:flex;
+  justify-content: space-between;
+  padding: 0px 10px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+footer p {
+  margin-top: 20px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 1.8rem;
+  margin-top: 10px;
+}
+
+.modal button {
+  margin-top: 10px;
+}
+
+.modal-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-list > img {
+  width: 100px;
+  margin-right: 100px;
+}
+
+@media only screen and (max-width: 1600px) {
+  html {
+    font-size: 15px;
+  }
+
+  #main-container {
+    flex-direction: column;
+  } 
+  #order-section, #menu-section{
+    margin: 5px;
+  }
+
+  .food-image {
+    width: 20%;
+  }
+
+  .order-item-image {
+    width: 15%;
+  }
 }
